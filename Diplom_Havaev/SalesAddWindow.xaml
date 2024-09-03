@@ -1,0 +1,38 @@
+﻿<Window x:Class="Diplom_Havaev.SalesAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_Havaev"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ИП ХАВАЕВ" Height="530" Width="640"  WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="87"/>
+            <RowDefinition Height="87"/>
+            <RowDefinition Height="87"/>
+            <RowDefinition Height="92"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="333"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.RowSpan="5" Margin="5,5,5,5" Style="{StaticResource DataGrid1}" FontSize="16" x:Name="DGridPFS" SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="Наименование" Binding="{Binding Products.productName}"/>
+                <DataGridTextColumn Width="0.5*" Header="Кол-во" Binding="{Binding quantity}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Text="Добавить Продукт" Style="{StaticResource TextBlock2}" Grid.Column="1"/>
+        <ComboBox SelectedItem="{Binding article}" x:Name="cmbProducts" Grid.Column="1" Grid.Row="1" Margin="10" materialDesign:HintAssist.Hint="Выберите товар" Height="38"/>
+        <TextBox Text="{Binding quantity}" x:Name="txtBoxQuantity" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Кол-во" Height="38" Width="287"/>
+        <Button Grid.Row="3" Grid.Column="1" Width="200" Height="35"
+        Content="Добавить" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" x:Name="btnAddPFS" Click="btnAddPFS_Click"/>
+        <TextBlock Text="Итоговая цена: 0" Grid.Column="1" Grid.Row="4" Style="{StaticResource TextBlock2}" x:Name="FinalPrise" HorizontalAlignment="Left" Margin="20"/>
+        <Button Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" Width="200" Height="35"
+        Content="Сохранить" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" x:Name="btnSave" Click="btnSave_Click"/>
+    </Grid>
+</Window>

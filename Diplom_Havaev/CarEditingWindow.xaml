@@ -1,0 +1,41 @@
+﻿<Window x:Class="Diplom_Havaev.CarEditingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_Havaev"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ИП ХАВАЕВ" Height="490" Width="700"  WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.ColumnSpan="10" Fill="#FFAEEA00"/>
+        <TextBlock Text="Новая машина " x:Name="HeadText" Grid.ColumnSpan="10" Style="{StaticResource TextBlock2}"/>
+        <TextBox Text="{Binding carNum}" materialDesign:HintAssist.Hint="Регистрационный номер" Grid.Column="0" Grid.Row="2" Width="300px" Height="34"/>
+        <ComboBox SelectedItem="{Binding brandСar}" materialDesign:HintAssist.Hint="Марка" x:Name="cmbBrandCar" Grid.Column="0" Grid.Row="3" Width="300px" Height="34" SelectionChanged="cmbBrandCar_SelectionChanged"/>
+        <ComboBox SelectedItem="{Binding modelCar}" materialDesign:HintAssist.Hint="Модель" x:Name="cmbModelCar" Grid.Column="0" Grid.Row="4" Width="300px" Height="34" IsEnabled="False"/>
+        <ComboBox SelectedItem="{Binding typeDrive}" materialDesign:HintAssist.Hint="Привод" x:Name="cmbTypeDrive" Grid.Column="1" Grid.ColumnSpan="10" Grid.Row="2" Width="300px" Height="34"/>
+        <ComboBox SelectedItem="{Binding engineCapacity}" materialDesign:HintAssist.Hint="Объем, л" x:Name="cmbEngineCapacity" Grid.Column="1" Grid.ColumnSpan="10" Grid.Row="3" Width="300px" Height="34"/>
+        <ComboBox SelectedItem="{Binding transmission}" HorizontalAlignment="Right" Margin="2,0" materialDesign:HintAssist.Hint="Кпп" x:Name="cmbTransmission" Grid.Column="1" Grid.Row="4" Width="150px" Height="34"/>
+        <ComboBox SelectedItem="{Binding fuel}" HorizontalAlignment="Left" Margin="2,0" materialDesign:HintAssist.Hint="Топливо" x:Name="cmbFuel" Grid.Column="2" Grid.Row="4" Width="150px" Height="34"/>
+        <ComboBox SelectedItem="{Binding bodyType}" materialDesign:HintAssist.Hint="Тип кузова" x:Name="cmbBodyType" Grid.Column="0" Grid.Row="5" Width="300px" Height="34"/>
+        <TextBox Text="{Binding bodyColor}" materialDesign:HintAssist.Hint="Цвет кузова" Grid.Column="1" Grid.ColumnSpan="10" Grid.Row="5" Width="300px" Height="34"/>
+        <Button Grid.ColumnSpan="10" Grid.Row="8" Width="200" Height="35"
+                Content="Сохранить" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                Style="{StaticResource MaterialDesignRaisedSecondaryButton}" 
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" x:Name="btnSave" Click="btnSave_Click"/>
+    </Grid>
+</Window>

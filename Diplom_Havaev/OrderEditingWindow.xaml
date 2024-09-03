@@ -1,0 +1,35 @@
+﻿<Window x:Class="Diplom_Havaev.OrderEditingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_Havaev"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ИП ХАВАЕВ" Height="420" Width="420"  WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.ColumnSpan="2" Fill="#FFAEEA00"/>
+        <TextBlock x:Name="HeadText" Text="Новый заказ" Grid.ColumnSpan="2" Style="{StaticResource TextBlock2}"/>
+        <ComboBox materialDesign:HintAssist.Hint="Заказчик" Grid.Column="1" Grid.Row="1"  Width="340px" Height="32px"
+                  x:Name="CmbCustomers" SelectedItem="{Binding customer}" SelectionChanged="CmbCustomers_SelectionChanged"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Машина" Width="340px" Height="32px"
+                  SelectedItem="{Binding customer}" x:Name="CmbCars" IsEnabled="False" />
+        <ComboBox materialDesign:HintAssist.Hint="Тип заказа" Grid.Column="1" Grid.Row="3" Width="340px" Height="28px" x:Name="cmbOrderType" SelectionChanged="cmbOrderType_SelectionChanged"/>
+        <TextBox Text="{Binding prise}" x:Name="txtPriseOrder" materialDesign:HintAssist.HelperText="Цена" materialDesign:HintAssist.HelperTextFontSize="13" Grid.Column="1" Grid.Row="4" Width="340px" Height="28px"/>
+        <Button Grid.ColumnSpan="2" Grid.Row="5" Width="200" Height="35"
+                Content="Сохранить" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                Style="{StaticResource MaterialDesignRaisedSecondaryButton}" 
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" x:Name="btnSave" Click="btnSave_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,61 @@
+﻿<Window x:Class="Diplom_Havaev.SalesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_Havaev"
+        mc:Ignorable="d"
+        Title="ИП ХАВАЕВ" Height="650" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid x:Name="myRect">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.18*"/>
+            <RowDefinition Height="0.13*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Width="auto" Height="auto" Fill="#E3F1CC" Grid.ColumnSpan="4" Grid.Row="0"/>
+        <Button Style="{StaticResource Button1}" Grid.Column="0" Grid.Row="0" BorderThickness="0" x:Name="btnGoToClient" Click="btnGoToClient_Click">
+            <StackPanel Orientation="Horizontal" Width="220px">
+                <Image Source="/img/icon_clientes.png" Width="40"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TextBlock1}" Text="Клиенты" FontFamily="Global Sans Serif"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource Button1}" Grid.Column="1" Grid.Row="0" x:Name="btnGoToOrders" Click="btnGoToOrders_Click">
+            <StackPanel Orientation="Horizontal" Width="220px">
+                <Image Source="/img/icon-orders.png" Width="40"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TextBlock1}" Text="Заказы" FontFamily="Global Sans Serif"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource Button1}" Grid.Column="2" Grid.Row="0" x:Name="btnGoToProducts" Click="btnGoToProducts_Click">
+            <StackPanel Orientation="Horizontal" Width="220px">
+                <Image Source="/img/icon-products.png" Width="32"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TextBlock1}" Text="Товары" FontFamily="Global Sans Serif"/>
+            </StackPanel>
+        </Button>
+        <Button Style="{StaticResource Button1}" Grid.Column="3" Grid.Row="0" Background="#92D142">
+            <StackPanel Orientation="Horizontal" Width="220px">
+                <Image Source="/img/icon-sales.png" Width="40"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TextBlock1}" Text="Продажи" FontFamily="Global Sans Serif"/>
+            </StackPanel>
+        </Button>
+        <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Style="{StaticResource TextBox1}" x:Name="TxtSearchBar" TextChanged="TxtSearchBar_TextChanged"/>
+        <DataGrid Style="{StaticResource DataGrid1}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2" x:Name="DGridSales" SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="450" Header="Покупатель" Binding="{Binding Clients.fio}"/>
+                <DataGridTextColumn Width="*" Header="Номер покупки" Binding="{Binding id}"/>
+                <DataGridTextColumn Width="200" Header="Цена" Binding="{Binding price}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource Button2}" Margin="0px,0px,15px,400px" x:Name="BtnAddSale" Click="BtnAddSale_Click">
+            <Image Source="/img/add.png" Width="28px"/>
+        </Button>
+        <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource Button2}" Margin="0px,0px,15px,280px" x:Name="BtnDelSale" Click="BtnDelSale_Click">
+            <Image Width="25px" Source="/img/delete.png"/>
+        </Button>
+    </Grid>
+</Window>

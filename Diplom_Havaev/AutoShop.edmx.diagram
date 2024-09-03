@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6cda2f0233d94c9bbea53da8b948f04d" Name="Diagram1" ZoomLevel="111">
+        <EntityTypeShape EntityType="AutoShop_BDModel.Cars" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoShop_BDModel.Clients" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoShop_BDModel.Orders" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoShop_BDModel.ProduceForSale" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoShop_BDModel.Products" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoShop_BDModel.Sales" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutoShop_BDModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="AutoShop_BDModel.FK_Cars_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoShop_BDModel.FK_Orders_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoShop_BDModel.FK_Orders_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoShop_BDModel.FK_Sales_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoShop_BDModel.FK_ProduceForSale_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="AutoShop_BDModel.FK_ProduceForSale_Sales" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

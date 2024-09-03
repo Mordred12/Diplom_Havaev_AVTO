@@ -1,0 +1,36 @@
+﻿<Window x:Class="Diplom_Havaev.ProductEditingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_Havaev"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ИП ХАВАЕВ" Height="420" Width="670"  WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.ColumnSpan="4" Fill="#FFAEEA00"/>
+        <TextBlock Text="Новый продукт" x:Name="HeadText" Grid.ColumnSpan="4" Style="{StaticResource TextBlock2}"/>
+        <TextBox Text="{Binding productName}" materialDesign:HintAssist.Hint="Наименование" x:Name="txtBoxDataArticle" Grid.Column="0" Grid.Row="2" Width="300px" Height="34"/>
+        <TextBox Text="{Binding article}" materialDesign:HintAssist.Hint="Артикул" x:Name="txtBoxDataProductName" Grid.Column="0" Grid.Row="3" Width="300px" Height="34"/>
+        <TextBox Text="{Binding price}" materialDesign:HintAssist.HelperText="Цена" materialDesign:HintAssist.HelperTextFontSize="13" x:Name="txtBoxDataPrice" Grid.Column="0" Grid.Row="4" Width="300px" Height="34"/>
+        <TextBox Text="{Binding manufacturer}" materialDesign:HintAssist.Hint="Производитель" x:Name="txtBoxDataManufacturer" Grid.Column="3" Grid.Row="2" Width="300px" Height="34"/>
+        <TextBox Text="{Binding typeAutoParts}" materialDesign:HintAssist.Hint="Тип автозапчасти" x:Name="txtBoxDataTypeAutoParts" Grid.Column="3" Grid.Row="3" Width="300px" Height="34"/>
+        <TextBox Text="{Binding quantity}" materialDesign:HintAssist.HelperText="Кол-во" materialDesign:HintAssist.HelperTextFontSize="13" x:Name="txtBoxDataquantity" Grid.Column="3" Grid.Row="4" Width="300px" Height="34"/>
+        <Button Grid.ColumnSpan="4" Grid.Row="8" Width="200" Height="35"
+                Content="Сохранить" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                Style="{StaticResource MaterialDesignRaisedSecondaryButton}" 
+                ToolTip="Resource name: MaterialDesignRaisedSecondaryButton" x:Name="btnSave" Click="btnSave_Click"/>
+    </Grid>
+</Window>
